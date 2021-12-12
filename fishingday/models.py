@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 class FishingDayPost(models.Model):
@@ -13,7 +14,7 @@ class FishingDayPost(models.Model):
     postLiked = models.BooleanField()
     commented = models.BooleanField()
     fishingCertification = models.BooleanField(null=True, blank=True)
-    commentedUser = models.TextField(null=True, default= 0)
+    commentedUser = ArrayField(models.CharField(null=True, max_length=100)) 
     likedUser = models.TextField(null=True, default= 0)
     viewerCount = models.IntegerField()
     fishName = models.CharField(max_length=50, null=True, blank=True)
