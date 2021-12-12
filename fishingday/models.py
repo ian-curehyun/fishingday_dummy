@@ -1,3 +1,4 @@
+from typing import List
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
@@ -9,7 +10,7 @@ class FishingDayPost(models.Model):
     editDate = models.DateTimeField()
     image = models.URLField(null=True, blank=True)
     youtube = models.URLField(null=True, blank=True)
-    hashtag = models.TextField(null=True, blank=True)
+    hashtag = ArrayField(models.CharField(max_length=200), blank= True, default=list)
     fishimage = models.URLField(null=True, blank=True)
     postLiked = models.BooleanField(default=False)
     commented = models.BooleanField(default=False)
