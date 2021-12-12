@@ -9,7 +9,7 @@ class FishingDayPost(models.Model):
     editDate = models.DateTimeField()
     image = models.URLField(null=True, blank=True)
     youtube = models.URLField(null=True, blank=True)
-    hashtag = models.TextField()
+    hashtag = ArrayField(models.TextField())
     fishimage = models.URLField(null=True, blank=True)
     postLiked = models.BooleanField(default=False)
     commented = models.BooleanField(default=False)
